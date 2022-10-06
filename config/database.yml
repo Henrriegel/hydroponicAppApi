@@ -13,9 +13,9 @@ default: &default
   adapter: mysql2
   encoding: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: igjj077gvvggew7h
-  password: azudc67fw98e2jym
-  host: qvti2nukhfiig51b.cbetxkdyhwsb.us-east-1.rds.amazonaws.com
+  username: root
+  password:
+  host: localhost
 
 development:
   <<: *default
@@ -50,6 +50,6 @@ test:
 #
 production:
   <<: *default
-  database: 
-  username: appApi
-  password: <%= ENV["APPAPI_DATABASE_PASSWORD"] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
