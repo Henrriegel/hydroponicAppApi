@@ -13,20 +13,20 @@ default: &default
   adapter: mysql2
   encoding: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: s9uot7vvl2vuy2gx
-  password: alr70u0noxj4wfv3
+  username: igjj077gvvggew7h
+  password: azudc67fw98e2jym
   host: qvti2nukhfiig51b.cbetxkdyhwsb.us-east-1.rds.amazonaws.com
 
 development:
   <<: *default
-  database: polws3d3rzd3v975
+  database: n7e0mwgxbbf7wkpz
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: polws3d3rzd3v975
+  database: n7e0mwgxbbf7wkpz
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -50,6 +50,6 @@ test:
 #
 production:
   <<: *default
-  database: polws3d3rzd3v975
+  database: n7e0mwgxbbf7wkpz
   username: appApi
   password: <%= ENV["APPAPI_DATABASE_PASSWORD"] %>
