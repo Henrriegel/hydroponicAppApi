@@ -1,0 +1,7 @@
+Enlace de coneccion a bd
+
+mysql://igjj077gvvggew7h:azudc67fw98e2jym@qvti2nukhfiig51b.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/n7e0mwgxbbf7wkpz
+
+comandos remotos
+
+>heroku run rails db:setup
