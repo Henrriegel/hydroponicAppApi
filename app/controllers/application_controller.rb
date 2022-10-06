@@ -11,7 +11,7 @@ class ApplicationController < ActionController::API
         current_user = User.find(decoded[:user_id])
         render json: {
             errorMessage: "",
-            data: header
+            data: decoded
         }, status: :ok
     end
 end
