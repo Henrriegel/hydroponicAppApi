@@ -4,4 +4,5 @@ mysql://igjj077gvvggew7h:azudc67fw98e2jym@qvti2nukhfiig51b.cbetxkdyhwsb.us-east-
 
 comandos remotos
 
->heroku run rails db:setup
+>heroku run rails db:migrate
+
