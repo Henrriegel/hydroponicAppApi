@@ -3,7 +3,7 @@ module Api
 
         #GET /users
         def index
-            users = User.order('id').to_json()
+            users = User.all.to_json()
             encoded = JWT.encode(users, Rails.application.secrets.secret_key_base)
             render json: {
                 errorMessage: "",
