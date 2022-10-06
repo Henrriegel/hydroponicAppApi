@@ -9,9 +9,5 @@ class ApplicationController < ActionController::API
         header = header.split(' ').last if header
         decoded = jwt_decode(header)
         current_user = User.find(decoded[:user_id])
-        render json: {
-            errorMessage: "",
-            data: current_user
-        }, status: :ok
     end
 end
