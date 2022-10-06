@@ -41,16 +41,12 @@ test:
 # variable, Rails will automatically merge its configuration values on top of
 # the values provided in this file. Alternatively, you can specify a connection
 # URL environment variable explicitly:
-#
-  production:
-    <<: *default
-    adapter: postgresql
-    url: mysql://mcwfgs9wvomkkk28:lscb0pi3jlks1csd@qvti2nukhfiig51b.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/h192g5hv2xtaavsy
+#st-1.rds.amazonaws.com:3306/h192g5hv2xtaavsy
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
-#production:
-#  <<: *default
-#  adapter: 'postgresql'
-#  encoding: utf8mb4
-#  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+production:
+  <<: *default
+  adapter: mysql2
+  encoding: utf8mb4
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
