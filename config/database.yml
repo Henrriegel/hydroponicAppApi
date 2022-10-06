@@ -52,5 +52,5 @@ production:
   <<: *default
   database: hydroponic
   adapter: mysql2
-  encoding: unicode
+  encoding: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
