@@ -16,7 +16,7 @@ class AuthenticationController < ApplicationController
             }, status: :ok
         else
             render json: {
-                errorMessage: 'No encontrado',
+                errorMessage: 'Sin acceso',
                 data: ''
             }, status: :unauthorized
         end
