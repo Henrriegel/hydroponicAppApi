@@ -43,7 +43,7 @@ test:
 # URL environment variable explicitly:
 #
   production:
-    url: <%= ENV["JAWSDB_URL"] %>
+    url: mysql://mcwfgs9wvomkkk28:lscb0pi3jlks1csd@qvti2nukhfiig51b.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/h192g5hv2xtaavsy
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
