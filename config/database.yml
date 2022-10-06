@@ -50,6 +50,6 @@ test:
 #
 production:
   <<: *default
-  adapter: postgresql
+  adapter: mysql2
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
