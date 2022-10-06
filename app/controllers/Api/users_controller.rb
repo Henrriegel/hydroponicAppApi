@@ -1,10 +1,12 @@
 module Api
     class UsersController < ApplicationController
 
+        before_action :set_secret_key
+
         #GET /users
         def index
             users = User.all.to_json()
-            encoded = JWT.encode(users, Rails.application.secrets.secret_key_base)
+            encoded = JWT.encode(users, SECRET_KEY)
             render json: {
                 errorMessage: "",
                 data: encoded.split('.').second
@@ -15,7 +17,7 @@ module Api
         def show
             user = User.find(params[:id])
             if user
-                encoded = JWT.encode(user.to_json(), Rails.application.secrets.secret_key_base)
+                encoded = JWT.encode(user.to_json(), SECRET_KEY)
                 render json: {
                     errorMessage: "",
                     data: encoded.split('.').second
@@ -61,8 +63,8 @@ module Api
 
         private
 
-        def set_user
-            user = User.find(params[:id])
+        def set_secret_key
+            SECRET_KEY = ENV['SECRET_KEY_BASE'] || Rails.application.secrets.secret_key_base
         end
 
         def user_params
