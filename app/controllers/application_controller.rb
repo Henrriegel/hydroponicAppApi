@@ -8,6 +8,12 @@ class ApplicationController < ActionController::API
         header = request.headers['Authorization']
         header = header.split(' ').last if header
         decoded = jwt_decode(header)
-        current_user = User.find(decoded[:user_id])
+        current_user = User.find(decoded[:user_id]) rescue nil
+        if !current_user || !header
+            render json: {
+                errorMessage: "Not authorized",
+                data: ""
+            }, status: :ok
+        end
     end
 end
