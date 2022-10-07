@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :users
     resources :plants
     resources :sensors
+    resources :parameters
   end
 
   post "/auth/login", to: "authentication#login"
