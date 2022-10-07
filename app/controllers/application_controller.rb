@@ -12,14 +12,15 @@ class ApplicationController < ActionController::API
                 errorMessage: "Not authorized",
                 data: ""
             }, status: :unprocessable_entity
-        end
-        decoded = jwt_decode(header)
-        current_user = User.find(decoded[:user_id]) rescue nil
-        if !current_user
-            render json: {
-                errorMessage: "Not authorized",
-                data: ""
-            }, status: :unprocessable_entity
+        else
+            decoded = jwt_decode(header)
+            current_user = User.find(decoded[:user_id]) rescue nil
+            if !current_user
+                render json: {
+                    errorMessage: "Not authorized",
+                    data: ""
+                }, status: :unprocessable_entity
+            end
         end
     end
 end
