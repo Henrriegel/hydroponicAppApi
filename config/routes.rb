@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   namespace 'api' do
     resources :users
+    resources :plants
   end
 
   post "/auth/login", to: "authentication#login"
