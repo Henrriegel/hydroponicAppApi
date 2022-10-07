@@ -64,7 +64,7 @@ module Api
         private
 
         def set_secret_key
-            SECRET_KEY = ENV['SECRET_KEY_BASE'] || Rails.application.secrets.secret_key_base
+            #SECRET_KEY = ENV['SECRET_KEY_BASE'] || Rails.application.secrets.secret_key_base
         end
 
         def user_params
