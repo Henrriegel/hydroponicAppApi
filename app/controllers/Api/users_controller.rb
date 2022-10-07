@@ -1,7 +1,6 @@
 module Api
     class UsersController < ApplicationController
-
-        before_action :set_secret_key
+        skip_before_action :authenticate_request, only: [:create]
 
         #GET /users
         def index
@@ -36,7 +35,7 @@ module Api
             if user.save
                 render json: {
                     errorMessage: "",
-                    data: user
+                    data: "Created"
                 }, status: :ok
             else
                 render json: {
@@ -48,24 +47,23 @@ module Api
 
         #DELETE /users/:id
         def destroy
-            if user.destroy
-                render json: {
-                    errorMessage: "",
-                    data: user
-                }, status: :ok
-            else
-                render json: {
-                    errorMessage: user.errors,
-                    data: ""
-                }, status: :unprocessable_entity
+            user = User.find(params[:id])
+            if current_user[:user_id] == user[:user_id]
+                if user.destroy
+                    render json: {
+                        errorMessage: "",
+                        data: "Erased"
+                    }, status: :ok
+                else
+                    render json: {
+                        errorMessage: user.errors,
+                        data: ""
+                    }, status: :unprocessable_entity
+                end
             end
         end
 
         private
-
-        def set_secret_key
-            #SECRET_KEY = ENV['SECRET_KEY_BASE'] || Rails.application.secrets.secret_key_base
-        end
 
         def user_params
             params.require(:user).permit(:nickname, :email, :password)
