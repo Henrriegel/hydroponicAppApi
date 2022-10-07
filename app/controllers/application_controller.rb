@@ -10,7 +10,7 @@ class ApplicationController < ActionController::API
         if !header
             render json: {
                 errorMessage: "Not authorized",
-                data: ""
+                data: "No tienes header"
             }, status: :unprocessable_entity
         else
             decoded = jwt_decode(header)
@@ -18,7 +18,7 @@ class ApplicationController < ActionController::API
             if !current_user
                 render json: {
                     errorMessage: "Not authorized",
-                    data: ""
+                    data: "Estás usando un token de un muerto"
                 }, status: :unprocessable_entity
             end
         end
