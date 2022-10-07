@@ -10,12 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_07_054923) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_07_061732) do
   create_table "plants", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_plants_on_name", unique: true
+  end
+
+  create_table "sensors", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name"
+    t.bigint "user_id", null: false
+    t.bigint "plant_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_sensors_on_name", unique: true
+    t.index ["plant_id"], name: "index_sensors_on_plant_id"
+    t.index ["user_id"], name: "index_sensors_on_user_id"
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -28,4 +39,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_07_054923) do
     t.index ["nickname"], name: "index_users_on_nickname", unique: true
   end
 
+  add_foreign_key "sensors", "plants"
+  add_foreign_key "sensors", "users"
 end
