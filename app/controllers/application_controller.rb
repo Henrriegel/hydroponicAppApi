@@ -11,7 +11,7 @@ class ApplicationController < ActionController::API
             render json: {
                 errorMessage: "Not authorized",
                 data: ""
-            }, status: :ok
+            }, status: :unprocessable_entity
         end
         decoded = jwt_decode(header)
         current_user = User.find(decoded[:user_id]) rescue nil
@@ -19,7 +19,7 @@ class ApplicationController < ActionController::API
             render json: {
                 errorMessage: "Not authorized",
                 data: ""
-            }, status: :ok
+            }, status: :unprocessable_entity
         end
     end
 end
