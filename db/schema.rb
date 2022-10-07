@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_07_063755) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_07_070542) do
+  create_table "lectures", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "temperature"
+    t.string "ph"
+    t.string "conductivity"
+    t.string "nutrients"
+    t.string "humidity"
+    t.bigint "sensor_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["sensor_id"], name: "index_lectures_on_sensor_id"
+  end
+
   create_table "parameters", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "temperature"
     t.string "ph"
@@ -53,6 +65,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_07_063755) do
     t.index ["nickname"], name: "index_users_on_nickname", unique: true
   end
 
+  add_foreign_key "lectures", "sensors"
   add_foreign_key "parameters", "plants"
   add_foreign_key "parameters", "users"
   add_foreign_key "sensors", "plants"

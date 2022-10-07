@@ -9,3 +9,4 @@ comandos remotos
 rails g model User email:string:uniq password:digest
 rails g model Parameter temperature:string ph:string conductivity:string nutrients:string humidity:string plant:references user:references
 rails g model Sensor name:string:uniq user:references plant:references
+rails g model Lecture temperature:string ph:string conductivity:string nutrients:string humidity:string sensor:references

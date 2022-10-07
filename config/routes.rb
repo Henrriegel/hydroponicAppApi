@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :plants
     resources :sensors
     resources :parameters
+    resources :lectures
   end
 
   post "/auth/login", to: "authentication#login"

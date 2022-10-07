@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  temperature: MyString
+  ph: MyString
+  conductivity: MyString
+  nutrients: MyString
+  humidity: MyString
+  sensor: one
+
+two:
+  temperature: MyString
+  ph: MyString
+  conductivity: MyString
+  nutrients: MyString
+  humidity: MyString
+  sensor: two
