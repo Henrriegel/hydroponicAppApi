@@ -48,6 +48,14 @@ module Api
         #DELETE /users/:id
         def destroy
             user = User.find(params[:id])
+
+            ### Obtener el id del header
+            header = request.headers['Authorization']
+            header = header.split(' ').last if header
+            decoded = jwt_decode(header)
+            current_user = User.find(decoded[:user_id])
+
+            ### Ver si el mismo usuario es quien está borrando su cuenta
             if current_user[:user_id] == user[:user_id]
                 if user.destroy
                     render json: {
