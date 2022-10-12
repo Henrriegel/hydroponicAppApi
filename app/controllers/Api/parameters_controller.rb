@@ -78,7 +78,7 @@ module Api
         private
 
         def parameter_params
-            params.permit(:temperature, :ph, :conductivity, :nutrients, :humidity, :user_id, :plant_id)
+            params.permit(:temperature, :roomTemperature, :ph, :conductivity, :nutrients, :humidity, :user_id, :plant_id)
         end
     end
 end

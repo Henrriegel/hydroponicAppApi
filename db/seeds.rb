@@ -11,3 +11,29 @@ User.create(
     email: 'luis.enrique.gr.legr@outlook.com',
     password: 'henrriegel'
 )
+
+Plant.create([
+        {
+            name: 'Garlic'
+        },
+        {
+            name: 'Onion'
+        }
+    ]
+)
+
+Sensor.create(
+    name: '',
+    mac_address: '24:D7:EB:58:51:00',
+    user_id: '1',
+    plant_id: '1'
+)
+
+Lecture.create(
+    sensor_id: '1',
+    roomTemperature: '35',
+    temperature1: '15',
+    temperature2: '16',
+    ph: '7',
+    roomHumidity: '89'
+)

@@ -10,7 +10,7 @@ module Api
             }, status: :ok
         end
         
-        #GET /api/lectures/:id
+        #GET /api/lectures/:id  - Obtener todas las lecturas de una esp32
         def show
             lecture = Lecture.find(params[:id])
             if lecture
@@ -62,7 +62,7 @@ module Api
         private
 
         def lecture_params
-            params.permit(:temperature, :ph, :conductivity, :nutrients, :humidity, :sensor_id)
+            params.permit(:roomTemperature, :temperature1, :temperature2, :ph, :roomHumidity, :sensor_id)
         end
     end
 end

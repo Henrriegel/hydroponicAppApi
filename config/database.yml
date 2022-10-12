@@ -11,15 +11,15 @@
 #
 default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: mcwfgs9wvomkkk28
-  password: lscb0pi3jlks1csd
-  host: qvti2nukhfiig51b.cbetxkdyhwsb.us-east-1.rds.amazonaws.com
-  database: h192g5hv2xtaavsy
+  username: root
+  password: 
+  host: localhost
 
 development:
   encoding: utf8
   adapter: mysql2
   <<: *default
+  database: hydroponicApp_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -28,6 +28,7 @@ test:
   encoding: utf8
   adapter: mysql2
   <<: *default
+  database: hydroponicApp_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -48,5 +49,8 @@ test:
 #
 production:
   encoding: utf8
-  <<: *default
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: mcwfgs9wvomkkk28
+  password: lscb0pi3jlks1csd
+  host: qvti2nukhfiig51b.cbetxkdyhwsb.us-east-1.rds.amazonaws.com
   database: <%= ENV['DATABASE_URL'] %>

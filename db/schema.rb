@@ -11,23 +11,22 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2022_10_07_070542) do
-  create_table "lectures", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "temperature"
+  create_table "lectures", charset: "utf8", force: :cascade do |t|
+    t.string "roomTemperature"
+    t.string "temperature1"
+    t.string "temperature2"
     t.string "ph"
-    t.string "conductivity"
-    t.string "nutrients"
-    t.string "humidity"
+    t.string "roomHumidity"
     t.bigint "sensor_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["sensor_id"], name: "index_lectures_on_sensor_id"
   end
 
-  create_table "parameters", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "parameters", charset: "utf8", force: :cascade do |t|
     t.string "temperature"
+    t.string "roomTemperature"
     t.string "ph"
-    t.string "conductivity"
-    t.string "nutrients"
     t.string "humidity"
     t.bigint "plant_id", null: false
     t.bigint "user_id"
@@ -37,25 +36,26 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_07_070542) do
     t.index ["user_id"], name: "index_parameters_on_user_id"
   end
 
-  create_table "plants", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "plants", charset: "utf8", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_plants_on_name", unique: true
   end
 
-  create_table "sensors", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "sensors", charset: "utf8", force: :cascade do |t|
     t.string "name"
+    t.string "mac_address"
     t.bigint "user_id", null: false
     t.bigint "plant_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_sensors_on_name", unique: true
+    t.index ["mac_address"], name: "index_sensors_on_mac_address", unique: true
     t.index ["plant_id"], name: "index_sensors_on_plant_id"
     t.index ["user_id"], name: "index_sensors_on_user_id"
   end
 
-  create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "users", charset: "utf8", force: :cascade do |t|
     t.string "nickname"
     t.string "email"
     t.string "password_digest"
