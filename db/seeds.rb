@@ -30,10 +30,22 @@ Sensor.create(
 )
 
 Lecture.create(
-    sensor_id: '1',
-    roomTemperature: '35',
-    temperature1: '15',
-    temperature2: '16',
-    ph: '7',
-    roomHumidity: '89'
+    [
+        {
+            sensor_id: '1',
+            roomTemperature: '35',
+            temperature1: '15',
+            temperature2: '16',
+            ph: '7',
+            roomHumidity: '89'
+        },
+        {
+            sensor_id: '1',
+            roomTemperature: '23',
+            temperature1: '18',
+            temperature2: '17',
+            ph: '6.5',
+            roomHumidity: '90'
+        }
+    ]
 )

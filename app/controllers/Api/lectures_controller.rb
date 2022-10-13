@@ -1,5 +1,7 @@
 module Api
     class LecturesController < ApplicationController
+        skip_before_action :authenticate_request, only: [:create]
+
         #GET /api/lectures
         def index
             lectures = Lecture.all.to_json()
@@ -10,9 +12,9 @@ module Api
             }, status: :ok
         end
         
-        #GET /api/lectures/:id  - Obtener todas las lecturas de una esp32
+        #GET /api/lectures/:id  - Obtener la ultima lectura de una esp32
         def show
-            lecture = Lecture.find(params[:id])
+            lecture = Lecture.order('id').last()
             if lecture
                 encoded = JWT.encode(lecture.to_json(), SECRET_KEY)
                 render json: {
