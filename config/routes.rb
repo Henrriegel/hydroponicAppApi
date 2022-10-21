@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :sensors
     resources :parameters
     resources :lectures
+    resources :usersensors
   end
 
   post "/auth/login", to: "authentication#login"

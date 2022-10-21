@@ -12,6 +12,12 @@ User.create(
     password: 'henrriegel'
 )
 
+User.create(
+    nickname: 'testUser',
+    email: 'testUser@gmail.com',
+    password: 'testUser'
+)
+
 Plant.create([
         {
             name: 'Garlic'
