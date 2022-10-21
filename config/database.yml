@@ -50,7 +50,4 @@ test:
 production:
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: mcwfgs9wvomkkk28
-  password: lscb0pi3jlks1csd
-  host: qvti2nukhfiig51b.cbetxkdyhwsb.us-east-1.rds.amazonaws.com
   database: <%= ENV['DATABASE_URL'] %>
