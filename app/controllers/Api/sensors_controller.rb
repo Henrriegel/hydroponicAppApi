@@ -1,5 +1,7 @@
 module Api
     class SensorsController < ApplicationController
+        skip_before_action :authenticate_request, only: [:show, :create]
+
         #GET /api/sensors
         def index
             sensors = Sensor.all.to_json()
