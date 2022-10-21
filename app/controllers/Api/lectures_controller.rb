@@ -12,9 +12,9 @@ module Api
             }, status: :ok
         end
         
-        #GET /api/lectures/:id  - Obtener la ultima lectura de una esp32
+        #GET /api/lectures/:id  - Obtener la ultima lectura de una esp32 (:id es el id del esp32)
         def show
-            lecture = Lecture.order('id').last()
+            lecture = Lecture.where(sensor_id: params[:id]).order('id').last()
             if lecture
                 encoded = JWT.encode(lecture.to_json(), SECRET_KEY)
                 render json: {
@@ -23,13 +23,13 @@ module Api
                 }, status: :ok
             else
                 render json: {
-                    errorMessage: "Lecture not found",
+                    errorMessage: "No hay lecturas",
                     data: ""
                 }, status: :unprocessable_entity
             end
         end
 
-        #POST /api/lectures/:mac_address
+        #POST /api/lectures
         def create
             lecture = Lecture.new(lecture_params)
             if lecture.save

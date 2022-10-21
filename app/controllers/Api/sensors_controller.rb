@@ -12,11 +12,12 @@ module Api
         
         #GET /api/sensors/:id
         def show
-            sensor = Sensor.find_by(name: params[:id])
+            sensor = Sensor.find_by(mac_address: params[:id])
             if sensor
                 encoded = JWT.encode(sensor.to_json(), SECRET_KEY)
                 render json: {
                     errorMessage: "",
+                    idSensor: sensor[:id],
                     data: encoded.split('.').second
                 }, status: :ok
             else
