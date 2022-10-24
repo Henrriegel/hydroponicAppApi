@@ -14,7 +14,7 @@ module Api
                 render json: {
                     errorMessage: "User has no sensors",
                     data: ""
-                }, status: :unprocessable_entity
+                }, status: :ok
             end
         end
     end
