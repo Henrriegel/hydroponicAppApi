@@ -7,15 +7,18 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 User.create(
-    nickname: 'henrriegel',
-    email: 'luis.enrique.gr.legr@outlook.com',
-    password: 'henrriegel'
-)
-
-User.create(
-    nickname: 'testUser',
-    email: 'testUser@gmail.com',
-    password: 'testUser'
+    [
+        {
+            nickname: 'henrriegel',
+            email: 'luis.enrique.gr.legr@outlook.com',
+            password: 'henrriegel'
+        },
+        {
+            nickname: 'testUser',
+            email: 'testUser@gmail.com',
+            password: 'testUser'
+        }
+    ]
 )
 
 Plant.create([

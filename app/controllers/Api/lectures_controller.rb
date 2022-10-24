@@ -16,10 +16,9 @@ module Api
         def show
             lecture = Lecture.where(sensor_id: params[:id]).order('id').last()
             if lecture
-                encoded = JWT.encode(lecture.to_json(), SECRET_KEY)
                 render json: {
                     errorMessage: "",
-                    data: encoded.split('.').second
+                    data: lecture
                 }, status: :ok
             else
                 render json: {

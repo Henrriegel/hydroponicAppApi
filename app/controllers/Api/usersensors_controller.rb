@@ -6,10 +6,9 @@ module Api
         def show
             sensor = Sensor.find_by(user_id: params[:id])
             if sensor
-                encoded = JWT.encode(sensor.to_json(), SECRET_KEY)
                 render json: {
                     errorMessage: "",
-                    data: encoded.split('.').second
+                    data: sensor
                 }, status: :ok
             else
                 render json: {
