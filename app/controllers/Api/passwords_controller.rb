@@ -2,13 +2,11 @@ module Api
     class PasswordsController < ApplicationController
 
         # UPDATE api/passwords/:id
-        #xd
         def update
             user = User.find(params[:id]) rescue nil
             if user
                 if user.authenticate(password_edit_params[:password_old])
-                    my_password = BCrypt::Password.create(password_edit_params[:password])
-                    if user.update(password: my_password)
+                    if user.update_attributes(password_edit_params[:password])
                         render json: {
                             errorMessage: "",
                             data: "Updated"
