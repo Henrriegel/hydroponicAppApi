@@ -6,7 +6,8 @@ module Api
             user = User.find(params[:id]) rescue nil
             if user
                 if user.authenticate(password_edit_params[:password_old])
-                    if user.update(password_edit_params[:password])
+                    user.password = password_edit_params[:password]
+                    if user.save
                         render json: {
                             errorMessage: "",
                             data: "Updated"
@@ -34,7 +35,7 @@ module Api
         private
 
         def password_edit_params
-            params.require(:user).permit(:password, :password_old)
+            params.permit(:password, :password_old)
         end
     end
 end
