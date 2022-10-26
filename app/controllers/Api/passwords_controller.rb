@@ -34,7 +34,7 @@ module Api
         private
 
         def password_edit_params
-            params.permit(:password, :password_old)
+            params.require(:user).permit(:password, :password_old)
         end
     end
 end
