@@ -1,5 +1,5 @@
 module Api
-    class UsersController < ApplicationController
+    class PasswordsController < ApplicationController
 
         # UPDATE api/passwords/:id
         def update
