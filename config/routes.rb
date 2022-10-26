@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :parameters
     resources :lectures
     resources :usersensors
+    resources :passwords
   end
 
   post "/auth/login", to: "authentication#login"

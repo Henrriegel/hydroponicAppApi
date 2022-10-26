@@ -76,5 +76,9 @@ module Api
         def user_params
             params.permit(:nickname, :email, :password)
         end
+
+        def user_edit_params
+            params.permit(:nickname, :email)
+        end
     end
 end
