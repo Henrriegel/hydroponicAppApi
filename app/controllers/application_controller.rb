@@ -11,7 +11,7 @@ class ApplicationController < ActionController::API
             render json: {
                 errorMessage: "Not authorized",
                 data: "No tienes header"
-            }, status: :unprocessable_entity
+            }, status: :ok
         else
             decoded = jwt_decode(header)
             current_user = User.find(decoded[:user_id]) rescue nil
@@ -19,7 +19,7 @@ class ApplicationController < ActionController::API
                 render json: {
                     errorMessage: "Not authorized",
                     data: "Estás usando un token de un muerto"
-                }, status: :unprocessable_entity
+                }, status: :ok
             end
         end
     end
