@@ -6,6 +6,7 @@ module Api
             user = User.find(params[:id]) rescue nil
             if user
                 if user.authenticate(password_edit_params[:password_old])
+                    password_edit_params[:password].encrypt_password = BCrypt::Password.create(password_edit_params[:password])
                     if user.update(password_edit_params[:password])
                         render json: {
                             errorMessage: "",
