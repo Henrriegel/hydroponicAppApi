@@ -6,7 +6,7 @@ module Api
             user = User.find(params[:id]) rescue nil
             if user
                 if user.authenticate(password_edit_params[:password_old])
-                    if user.update_attribute(password_edit_params[:password])
+                    if user.update(password_edit_params[:password])
                         render json: {
                             errorMessage: "",
                             data: "Updated"
