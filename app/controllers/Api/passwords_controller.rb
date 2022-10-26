@@ -2,6 +2,7 @@ module Api
     class PasswordsController < ApplicationController
 
         # UPDATE api/passwords/:id
+        #xd
         def update
             user = User.find(params[:id]) rescue nil
             if user

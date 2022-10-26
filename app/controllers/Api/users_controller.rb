@@ -71,6 +71,28 @@ module Api
             end
         end
 
+        def update
+            user = User.find(params[:id]) rescue nil
+            if user
+                if user.update(user_edit_params)
+                    render json: {
+                        errorMessage: "",
+                        data: "Updated"
+                    }, status: :ok
+                else
+                    render json: {
+                        errorMessage: user.errors,
+                        data: ""
+                    }, status: :unprocessable_entity
+                end
+            else
+                render json: {
+                    errorMessage: "User not found",
+                    data: ""
+                }, status: :unprocessable_entity
+            end
+        end
+
         private
 
         def user_params
