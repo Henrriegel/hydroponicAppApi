@@ -74,7 +74,7 @@ module Api
         def update
             user = User.find(params[:id]) rescue nil
             if user
-                if user.update(user_edit_params)
+                if user.update(user_params)
                     render json: {
                         errorMessage: "",
                         data: "Updated"
@@ -96,11 +96,11 @@ module Api
         private
 
         def user_params
-            params.permit(:nickname, :email, :password)
-        end
-
-        def user_edit_params
-            params.permit(:nickname, :email)
+            if params[:password].present?
+                params.permit(:nickname, :email, :password)
+            else
+                params.permit(:nickname, :email)
+            end
         end
     end
 end
