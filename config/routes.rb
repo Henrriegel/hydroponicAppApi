@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :lectures
     resources :usersensors
     resources :passwords
+    resources :relay
   end
 
   post "/auth/login", to: "authentication#login"
