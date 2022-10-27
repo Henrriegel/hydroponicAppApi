@@ -3,6 +3,7 @@ class CreateSensors < ActiveRecord::Migration[7.0]
     create_table :sensors do |t|
       t.string :name
       t.string :mac_address
+      t.string :activate
       t.references :user, null: false, foreign_key: true
       t.references :plant, null: false, foreign_key: true
 

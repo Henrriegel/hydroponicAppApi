@@ -20,6 +20,7 @@ module Api
                 render json: {
                     errorMessage: "",
                     idSensor: sensor[:id],
+                    activate: sensor[:activate],
                     data: encoded.split('.').second
                 }, status: :ok
             else
@@ -73,7 +74,7 @@ module Api
         private
 
         def sensor_params
-            params.permit(:name, :user_id, :plant_id)
+            params.permit(:name, :user_id, :plant_id, :activate)
         end
     end
 end
