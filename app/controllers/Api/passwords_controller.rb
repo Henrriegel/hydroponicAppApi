@@ -16,19 +16,19 @@ module Api
                         render json: {
                             errorMessage: user.errors,
                             data: ""
-                        }, status: :unprocessable_entity
+                        }, status: :ok
                     end
                 else
                     render json: {
                         errorMessage: "Contraseña incorrecta",
                         data: ""
-                    }, status: :unprocessable_entity
+                    }, status: :ok
                 end
             else
                 render json: {
                     errorMessage: "User not found",
                     data: ""
-                }, status: :unprocessable_entity
+                }, status: :ok
             end
         end
 
