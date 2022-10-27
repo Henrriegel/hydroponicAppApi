@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :parameters
 
   validates :email, presence: true
-  validates :password, length: {minimum:6}
+  #Uncomment next if password needs validation and minimum length
+  #validates :password, presence: true, length: {minimum:6}
 
 end
