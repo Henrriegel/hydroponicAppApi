@@ -1,6 +1,6 @@
 module Api
     class UsersController < ApplicationController
-        skip_before_action :authenticate_request, only: [:create]
+        skip_before_action :authenticate_request, only: [:create, :update]
 
         #GET /users
         def index
