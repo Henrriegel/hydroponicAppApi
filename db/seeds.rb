@@ -34,7 +34,7 @@ Plant.create([
 Sensor.create(
     name: '',
     mac_address: '24:D7:EB:58:51:00',
-    activated: 'false',
+    activate: 'false',
     user_id: '1',
     plant_id: '1'
 )
