@@ -1,6 +1,8 @@
 module Api
     class RelayController < ApplicationController
 
+        skip_before_action :authenticate_request, only: [:show]
+
         #GET /api/relay/:id                                         Returns sensor_id and activated state
         def show
             sensor = Sensor.find_by(mac_address: params[:id])
