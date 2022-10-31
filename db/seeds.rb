@@ -33,7 +33,7 @@ Plant.create([
 
 Sensor.create(
     name: 'Esp32 Test',
-    mac_address: '24:D7:EB:58:51:00',
+    mac_address: 'C8:F0:9E:A6:A5:B8',
     activate: 'false',
     user_id: '1',
     plant_id: '1'
