@@ -16,7 +16,7 @@ module Api
                 render json: {
                     errorMessage: "Sensor not found",
                     data: ""
-                }, status: :unprocessable_entity
+                }, status: :ok
             end
         end
 
